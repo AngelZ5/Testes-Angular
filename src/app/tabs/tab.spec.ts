@@ -6,6 +6,10 @@ import { MOCK_TABS } from '../testing/testing-data';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
+//testar a integração entre courses-card-list e o componente courses-dialog
+
+//criar um arquivo de teste no componente courses-card-list
+
 describe('TabsComponent', () => {
   let component: TabsComponent;
   let fixture: ComponentFixture<TabsComponent>;
