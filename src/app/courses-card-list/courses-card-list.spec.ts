@@ -22,6 +22,25 @@ describe("test integration between courses-card-list and courses-dialog componen
       it('should display the course list', () => {
         const cardTitles = de.queryAll(By.css('.course-card .card-header'))
         expect(cardTitles.length).toBe(2);
+        const titleEl = cardTitles[0].nativeElement
+        expect(titleEl.textContent).toBe('Beginner Course')
+      })
+
+      it('should display message when no courses', () => {
+        fixture.componentRef.setInput('courses', [])
+        fixture.detectChanges()
+        const msg = de.query(By.css('.no-courses'))
+        expect(msg).toBeTruthy()
+        expect(msg.nativeElement.textContent).toBe('No courses found. ')
+      })
+
+      it('should open dialog when edit button is clicked', () => {
+          const btn = de.query(By.css('.course-card:first-child .edit-btn'))
+          btn.nativeElement.click()
+          fixture.detectChanges()
+
+          const form = document.querySelectorAll('course-form')
+          expect(form, "o form foi criado corretamente").toBeTruthy()
       })
 })
 })
