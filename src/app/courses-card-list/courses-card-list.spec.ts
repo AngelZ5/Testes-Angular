@@ -19,6 +19,9 @@ describe("test integration between courses-card-list and courses-dialog componen
       component = fixture.componentInstance
       de = fixture.debugElement
 
-      it('should display the course list', () => )
+      it('should display the course list', () => {
+        const cardTitles = de.queryAll(By.css('.course-card .card-header'))
+        expect(cardTitles.length).toBe(2);
+      })
 })
 })
